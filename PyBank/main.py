@@ -40,3 +40,13 @@ print(f"Total: {total_amount}")
 print(f"Average Change: {m_ave/total_months}")
 print(f"Greatest Increase in Profits: {increase_month} ({most_increase})")
 print(f"Greatest Decrease in Profits: {decrease_month} ({most_decrease})")
+
+output_path = os.path.join('Analysis', 'PyBank_Results.txt')
+with open(output_path, 'w') as text_out:
+    print("Financial Analysis", file = text_out)
+    print("--------------------------", file = text_out)
+    print(f"Total Months: {total_months + 1}", file = text_out)
+    print(f"Total: {total_amount}", file = text_out)
+    print(f"Average Change: {m_ave/total_months}", file = text_out)
+    print(f"Greatest Increase in Profits: {increase_month} ({most_increase})", file = text_out)
+    print(f"Greatest Decrease in Profits: {decrease_month} ({most_decrease})", file = text_out)
