@@ -39,7 +39,6 @@ total_votes = len(all_candidates)
 totals.sort(reverse=True)
 
 #print output to terminal
-print(totals)
 print('Election Results')
 print('---------------------------------')
 print(f'Total Votes: {total_votes}')
@@ -60,8 +59,6 @@ print('---------------------------------')
 #write output to text file
 output_path = os.path.join('Analysis', 'PyPoll_Results.txt')
 with open(output_path, 'w') as text_out:
-    print("Financial Analysis", file = text_out)
-    print(totals, file = text_out)
     print('Election Results', file = text_out)
     print('---------------------------------', file = text_out)
     print(f'Total Votes: {total_votes}', file = text_out)
