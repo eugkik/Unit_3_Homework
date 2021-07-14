@@ -11,7 +11,7 @@ all_candidates = []
 unique_candidates = []
 
 #list to contain unique candidate names and their total vote counts
-totals = []
+candidate_votes = []
 
 #read csv file and skip header row
 with open(source_data) as csvfile:
@@ -27,16 +27,16 @@ with open(source_data) as csvfile:
 
 #loop through each name in unique_candidates list
 #count name occurances in all_candidates list to determine total votes for name
-#append list of vote count and name into totals list
+#append list of vote count and name into candidate_votes list
 for names in unique_candidates:
     counts = all_candidates.count(names)
-    totals.append([counts,names])    
+    candidate_votes.append([counts,names])    
 
 #find total votes cast in election from length of all_candidates list
 total_votes = len(all_candidates)
 
-#reverse sort totals list to order candidates from highest to lowest votes
-totals.sort(reverse=True)
+#reverse sort candidate_votes list to order candidates from highest to lowest votes
+candidate_votes.sort(reverse=True)
 
 #print output to terminal
 print('Election Results')
@@ -47,13 +47,13 @@ print('---------------------------------')
 #loop through number of unique candidates
 #calculate percent of votes received for each unique candidate
 #print formatted output to terminal
-for x in range(len(totals)):
-   percent_votes = totals[x][0]/total_votes*100
-   print(f"{totals[x][1]}: {format(percent_votes, '.3f')}% ({totals[x][0]})")
+for x in range(len(candidate_votes)):
+   percent_votes = candidate_votes[x][0]/total_votes*100
+   print(f"{candidate_votes[x][1]}: {format(percent_votes, '.3f')}% ({candidate_votes[x][0]})")
 
-#print element 0 from sorted totals list as winner to terminal
+#print element 0 from sorted candidate_votes list as winner to terminal
 print('---------------------------------')
-print(f'Winner: {totals[0][1]}')
+print(f'Winner: {candidate_votes[0][1]}')
 print('---------------------------------')
 
 #write output to text file
@@ -63,9 +63,9 @@ with open(output_path, 'w') as text_out:
     print('---------------------------------', file = text_out)
     print(f'Total Votes: {total_votes}', file = text_out)
     print('---------------------------------', file = text_out)
-    for x in range(len(totals)):
-        percent_votes = totals[x][0]/total_votes*100
-        print(f"{totals[x][1]}: {format(percent_votes, '.3f')}% ({totals[x][0]})", file = text_out)
+    for x in range(len(candidate_votes)):
+        percent_votes = candidate_votes[x][0]/total_votes*100
+        print(f"{candidate_votes[x][1]}: {format(percent_votes, '.3f')}% ({candidate_votes[x][0]})", file = text_out)
     print('---------------------------------', file = text_out)
-    print(f'Winner: {totals[0][1]}', file = text_out)
+    print(f'Winner: {candidate_votes[0][1]}', file = text_out)
     print('---------------------------------', file = text_out)
