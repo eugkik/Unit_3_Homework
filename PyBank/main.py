@@ -20,11 +20,11 @@ with open(csvpath) as csvfile:
     monthly_total = 0
 
 #read first row of profit data
-#set initial values for calculating monthly average change
+#set initial value for calculating monthly profit/loss change
     csv_first = next(csvreader)
     last_month = int(csv_first[1])
 
-#initialize variable for cumulative profit totals
+#set initial value for cumulative profit totals
     total_amount = int(csv_first[1])
 
 #loop through all remaining rows and append date and profit data into list
@@ -49,7 +49,7 @@ with open(csvpath) as csvfile:
 #record current month and amount if less
         elif monthly_change <  greatest_decrease_amount:
             greatest_decrease_amount = monthly_change
-            decrease_month = row[0]
+            greatest_decrease_month = row[0]
 
 #set variable for next iteration
         last_month = int(row[1])
@@ -64,7 +64,7 @@ print(f"Total Months: {total_months + 1}")
 print(f"Total: ${total_amount}")
 print(f"Average Change: ${round(monthly_total/total_months,2)}")
 print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase_amount})")
-print(f"Greatest Decrease in Profits: {decrease_month} (${greatest_decrease_amount})")
+print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease_amount})")
 
 #print output to text file
 output_path = os.path.join('Analysis', 'PyBank_Results.txt')
@@ -75,4 +75,4 @@ with open(output_path, 'w') as text_out:
     print(f"Total: ${total_amount}", file = text_out)
     print(f"Average Change: ${round(monthly_total/total_months,2)}", file = text_out)
     print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase_amount})", file = text_out)
-    print(f"Greatest Decrease in Profits: {decrease_month} (${greatest_decrease_amount})", file = text_out)
+    print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease_amount})", file = text_out)

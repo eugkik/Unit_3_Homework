@@ -1,8 +1,26 @@
 # python-challenge homework
 
+## PyBank
 
+The main.py Python script in the PyBank subfolder will open the 'budget_data.csv' file, which is composed of two columns: `Date` and `Profit/Losses`, from the Resources subfolder.
 
+After skipping the header row, the first month's profit/loss amount is initialized in the variables `last_month` and `total_amount`.
 
+A For loop will go through each row and append the date and profit/losses into the `raw_data` list.  The cumulative profit/losses will be store in the variable `total_amount`.  The monthly change in profit/losses will be stored in the variable `monthly_total`.
+
+An If statement will compare the current month's profit/loss to the values stored in variables.  If the amount is greater or less than the stored amounts, the date and amount will be recorded in the variables.
+
+The following output will be printed on the terminal and saved as a text file, pybank_results.txt, in the Analysis subfolder:
+
+* The total number of months included in the dataset
+
+* The net total amount of "Profit/Losses" over the entire period
+
+* The average change in "Profit/Losses" over the entire period
+
+* The greatest increase in profits (date and amount) over the entire period
+
+* The greatest decrease in profits (date and amount) over the entire period
 
 
 
@@ -18,7 +36,7 @@ The total votes cast in the election will be calculated by the length of the `al
 
 The `candidate_votes` list will be reverse sorted by the `counts` value to order candidates from highest to lowest votes.
 
-The following output will be written to the terminal and saved save as the text file, PyPoll_results.txt, in the Analysis subfolder:
+The following output will be printed on the terminal and saved save as the text file, PyPoll_results.txt, in the Analysis subfolder:
 
 * The total number of votes cast from `total_votes`
 

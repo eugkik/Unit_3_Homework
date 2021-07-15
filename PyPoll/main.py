@@ -26,7 +26,7 @@ with open(source_data) as csvfile:
             unique_candidates.append(row[2])
 
 #loop through each name in unique_candidates list
-#count name occurances in all_candidates list to determine total votes for name
+#count name occurrences in all_candidates list to determine total votes for name
 #append list of vote count and name into candidate_votes list
 for names in unique_candidates:
     counts = all_candidates.count(names)
